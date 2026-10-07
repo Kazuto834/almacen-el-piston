@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de gestión del almacén automotriz El Pistón">
+  <title>Almacén El Pistón | Sistema de Gestión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <strong>El Pistón</strong>
+          <span>Centro de Distribución</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p class="nav-label">Principal</p>
+        <a href="#inicio" class="nav-link active" data-section="inicio"><span>⌂</span> Inicio</a>
+        <a href="#inventario" class="nav-link" data-section="inventario"><span>▣</span> Inventario</a>
+        <a href="#productos" class="nav-link" data-section="productos"><span>⚙</span> Productos</a>
+        <a href="#ubicaciones" class="nav-link" data-section="ubicaciones"><span>⌖</span> Ubicaciones</a>
+        <a href="#ordenes" class="nav-link" data-section="ordenes"><span>☷</span> Órdenes de salida</a>
+
+        <p class="nav-label">Administración</p>
+        <a href="#empleados" class="nav-link" data-section="empleados"><span>♙</span> Personal</a>
+        <a href="#reportes" class="nav-link" data-section="reportes"><span>▥</span> Reportes</a>
+        <a href="#ayuda" class="nav-link" data-section="ayuda"><span>?</span> Ayuda</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <div>
+          <strong>Modo demostración</strong>
+          <span>Sin conexión a base de datos</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <div class="breadcrumb" id="breadcrumb">Inicio <span>/</span> Panel general</div>
+        <div class="top-actions">
+          <button class="icon-btn" id="themeBtn" title="Cambiar apariencia">◐</button>
+          <button class="user-chip" type="button">
+            <span class="avatar">OP</span>
+            <span class="user-name">Operador</span>
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- INICIO -->
+        <section class="page-section active" id="inicio">
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow">CENTRO DE DISTRIBUCIÓN</span>
+              <h1>Panel general</h1>
+              <p>Consulta rápidamente el estado del almacén y las operaciones del día.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="btn btn-primary" data-go="ordenes">+ Nueva orden</button>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon blue">▣</div>
+              <div><span>Productos registrados</span><strong>1,284</strong><small>+24 este mes</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon green">⌖</div>
+              <div><span>Ubicaciones ocupadas</span><strong>428 / 520</strong><small>82.3% de ocupación</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon orange">☷</div>
+              <div><span>Órdenes pendientes</span><strong>17</strong><small>5 requieren atención</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon purple">♙</div>
+              <div><span>Empleados activos</span><strong>23</strong><small>Turno actual</small></div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="card">
+              <div class="card-header">
+                <div><h2>Órdenes recientes</h2><p>Actividad de salida del almacén</p></div>
+                <button class="text-btn" data-go="ordenes">Ver todas →</button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Orden</th><th>Empleado</th><th>Fecha</th><th>Estatus</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>#ORD-1048</strong></td><td>Laura Méndez</td><td>07 Oct, 10:24</td><td><span class="badge success">Completada</span></td></tr>
+                    <tr><td><strong>#ORD-1047</strong></td><td>Diego Ramírez</td><td>07 Oct, 10:11</td><td><span class="badge warning">En proceso</span></td></tr>
+                    <tr><td><strong>#ORD-1046</strong></td><td>Mario García</td><td>07 Oct, 09:58</td><td><span class="badge neutral">Pendiente</span></td></tr>
+                    <tr><td><strong>#ORD-1045</strong></td><td>Laura Méndez</td><td>07 Oct, 09:42</td><td><span class="badge success">Completada</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <div><h2>Capacidad del almacén</h2><p>Distribución por zona</p></div>
+                <button class="text-btn" data-go="ubicaciones">Ver ubicaciones →</button>
+              </div>
+              <div class="capacity-list">
+                <div class="capacity-row"><div><span>Zona A · Refacciones</span><strong>92%</strong></div><div class="progress"><i style="width:92%"></i></div></div>
+                <div class="capacity-row"><div><span>Zona B · Motores</span><strong>74%</strong></div><div class="progress"><i style="width:74%"></i></div></div>
+                <div class="capacity-row"><div><span>Zona C · Eléctricos</span><strong>68%</strong></div><div class="progress"><i style="width:68%"></i></div></div>
+                <div class="capacity-row"><div><span>Zona D · Químicos</span><strong>55%</strong></div><div class="progress"><i style="width:55%"></i></div></div>
+              </div>
+              <div class="mini-note"><span>●</span> 92 ubicaciones disponibles para nueva mercancía</div>
+            </article>
+          </div>
+
+          <div class="quick-actions">
+            <h2>Acciones frecuentes</h2>
+            <div class="quick-grid">
+              <button class="quick-card" data-go="inventario"><span>⌕</span><strong>Buscar pieza</strong><small>Consulta SKU y ubicación</small></button>
+              <button class="quick-card" data-go="ubicaciones"><span>⌖</span><strong>Buscar ubicación</strong><small>Consulta racks y niveles</small></button>
+              <button class="quick-card" data-go="ordenes"><span>＋</span><strong>Registrar salida</strong><small>Crear orden de surtido</small></button>
+              <button class="quick-card" data-go="reportes"><span>▥</span><strong>Generar reporte</strong><small>Ver indicadores operativos</small></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- INVENTARIO -->
+        <section class="page-section" id="inventario">
+          <div class="page-heading">
+            <div><span class="eyebrow">INVENTARIO FÍSICO</span><h1>Buscar piezas</h1><p>Encuentra una refacción y conoce exactamente dónde se encuentra.</p></div>
+          </div>
+          <article class="card search-card">
+            <div class="search-box"><span>⌕</span><input id="inventorySearch" type="search" placeholder="Buscar por SKU, nombre o categoría..."><button class="btn btn-primary" id="searchInventory">Buscar</button></div>
+            <div class="filter-row">
+              <select id="categoryFilter"><option value="">Todas las categorías</option><option>Frenos</option><option>Motor</option><option>Eléctrico</option><option>Suspensión</option><option>Químicos</option></select>
+              <select><option>Todos los estados</option><option>Con existencia</option><option>Stock bajo</option><option>Agotado</option></select>
+              <button class="btn btn-light" id="clearInventory">Limpiar filtros</button>
+            </div>
+          </article>
+
+          <div class="results-bar"><span id="inventoryCount">Mostrando 8 productos</span><button class="text-btn">Exportar vista ↓</button></div>
+          <article class="card">
+            <div class="table-wrap">
+              <table id="inventoryTable">
+                <thead><tr><th>SKU</th><th>Producto</th><th>Categoría</th><th>Existencia</th><th>Ubicación</th><th>Estado</th><th></th></tr></thead>
+                <tbody>
+                  <tr data-category="Frenos" data-search="SKU-1001 balatas delanteras frenos"><td><strong>SKU-1001</strong></td><td>Balatas delanteras</td><td>Frenos</td><td><strong>36 pzas.</strong></td><td><span class="location-tag">A · P02 · R03 · N01</span></td><td><span class="badge success">Disponible</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1001 · Balatas delanteras">Ver</button></td></tr>
+                  <tr data-category="Motor" data-search="SKU-1002 filtro aceite motor"><td><strong>SKU-1002</strong></td><td>Filtro de aceite</td><td>Motor</td><td><strong>82 pzas.</strong></td><td><span class="location-tag">A · P03 · R01 · N02</span></td><td><span class="badge success">Disponible</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1002 · Filtro de aceite">Ver</button></td></tr>
+                  <tr data-category="Eléctrico" data-search="SKU-1003 sensor oxigeno electrico"><td><strong>SKU-1003</strong></td><td>Sensor de oxígeno</td><td>Eléctrico</td><td><strong>14 pzas.</strong></td><td><span class="location-tag">C · P01 · R04 · N03</span></td><td><span class="badge warning">Stock bajo</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1003 · Sensor de oxígeno">Ver</button></td></tr>
+                  <tr data-category="Suspensión" data-search="SKU-1004 amortiguador suspension"><td><strong>SKU-1004</strong></td><td>Amortiguador delantero</td><td>Suspensión</td><td><strong>24 pzas.</strong></td><td><span class="location-tag">B · P04 · R02 · N01</span></td><td><span class="badge success">Disponible</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1004 · Amortiguador delantero">Ver</button></td></tr>
+                  <tr data-category="Motor" data-search="SKU-1005 banda distribucion motor"><td><strong>SKU-1005</strong></td><td>Banda de distribución</td><td>Motor</td><td><strong>9 pzas.</strong></td><td><span class="location-tag">B · P02 · R05 · N02</span></td><td><span class="badge warning">Stock bajo</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1005 · Banda de distribución">Ver</button></td></tr>
+                  <tr data-category="Frenos" data-search="SKU-1006 disco freno frenos"><td><strong>SKU-1006</strong></td><td>Disco de freno</td><td>Frenos</td><td><strong>41 pzas.</strong></td><td><span class="location-tag">A · P02 · R04 · N01</span></td><td><span class="badge success">Disponible</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1006 · Disco de freno">Ver</button></td></tr>
+                  <tr data-category="Químicos" data-search="SKU-1007 anticongelante quimicos"><td><strong>SKU-1007</strong></td><td>Anticongelante 1L</td><td>Químicos</td><td><strong>56 pzas.</strong></td><td><span class="location-tag">D · P01 · R01 · N01</span></td><td><span class="badge success">Disponible</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1007 · Anticongelante 1L">Ver</button></td></tr>
+                  <tr data-category="Eléctrico" data-search="SKU-1008 bateria automotriz electrico"><td><strong>SKU-1008</strong></td><td>Batería automotriz</td><td>Eléctrico</td><td><strong>7 pzas.</strong></td><td><span class="location-tag">C · P03 · R02 · N01</span></td><td><span class="badge danger">Crítico</span></td><td><button class="table-btn" data-modal="detalle" data-title="SKU-1008 · Batería automotriz">Ver</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- PRODUCTOS -->
+        <section class="page-section" id="productos">
+          <div class="page-heading"><div><span class="eyebrow">CATÁLOGO</span><h1>Productos</h1><p>Administra la información de las refacciones almacenadas.</p></div><button class="btn btn-primary" data-modal="nuevo" data-title="Registrar producto">+ Nuevo producto</button></div>
+          <div class="stats-grid compact">
+            <article class="stat-card"><div class="stat-icon blue">⚙</div><div><span>Total de productos</span><strong>1,284</strong></div></article>
+            <article class="stat-card"><div class="stat-icon green">✓</div><div><span>Con existencia</span><strong>1,166</strong></div></article>
+            <article class="stat-card"><div class="stat-icon orange">!</div><div><span>Stock bajo</span><strong>73</strong></div></article>
+            <article class="stat-card"><div class="stat-icon purple">○</div><div><span>Sin existencia</span><strong>45</strong></div></article>
+          </div>
+          <article class="card">
+            <div class="card-header"><div><h2>Catálogo de refacciones</h2><p>Datos de demostración</p></div><div class="inline-search"><input type="search" placeholder="Buscar producto...">⌕</div></div>
+            <div class="table-wrap"><table><thead><tr><th>SKU</th><th>Nombre</th><th>Categoría</th><th>Dimensiones (cm)</th><th>Peso</th><th>Tipo</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><strong>SKU-1001</strong></td><td>Balatas delanteras</td><td>Frenos</td><td>18 × 12 × 7</td><td>2.4 kg</td><td>Pieza sólida</td><td><button class="table-btn" data-modal="editar" data-title="Editar SKU-1001">Editar</button></td></tr>
+                <tr><td><strong>SKU-1002</strong></td><td>Filtro de aceite</td><td>Motor</td><td>11 × 11 × 15</td><td>0.6 kg</td><td>Pieza sólida</td><td><button class="table-btn" data-modal="editar" data-title="Editar SKU-1002">Editar</button></td></tr>
+                <tr><td><strong>SKU-1003</strong></td><td>Sensor de oxígeno</td><td>Eléctrico</td><td>20 × 8 × 8</td><td>0.5 kg</td><td>Pieza sólida</td><td><button class="table-btn" data-modal="editar" data-title="Editar SKU-1003">Editar</button></td></tr>
+                <tr><td><strong>SKU-1007</strong></td><td>Anticongelante 1L</td><td>Químicos</td><td>10 × 7 × 27</td><td>1.1 kg</td><td>Fluido químico</td><td><button class="table-btn" data-modal="editar" data-title="Editar SKU-1007">Editar</button></td></tr>
+              </tbody></table></div>
+          </article>
+        </section>
+
+        <!-- UBICACIONES -->
+        <section class="page-section" id="ubicaciones">
+          <div class="page-heading"><div><span class="eyebrow">TOPOLOGÍA DEL ALMACÉN</span><h1>Ubicaciones</h1><p>Consulta zonas, pasillos, racks, niveles y capacidad de carga.</p></div><button class="btn btn-primary" data-modal="nuevo" data-title="Registrar ubicación">+ Nueva ubicación</button></div>
+          <div class="location-layout">
+            <article class="card warehouse-map">
+              <div class="card-header"><div><h2>Mapa de zonas</h2><p>Vista general del almacén</p></div><span class="map-legend"><i></i> Disponible</span></div>
+              <div class="map-grid">
+                <button class="zone zone-a" data-zone="Zona A"><strong>A</strong><span>Refacciones</span><small>92% ocupado</small></button>
+                <button class="zone zone-b" data-zone="Zona B"><strong>B</strong><span>Motores</span><small>74% ocupado</small></button>
+                <button class="zone zone-c" data-zone="Zona C"><strong>C</strong><span>Eléctricos</span><small>68% ocupado</small></button>
+                <button class="zone zone-d" data-zone="Zona D"><strong>D</strong><span>Químicos</span><small>55% ocupado</small></button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header"><div><h2>Ubicaciones libres</h2><p>Espacios disponibles para mercancía</p></div></div>
+              <div class="empty-list">
+                <div><span class="location-tag">A · P05 · R02 · N03</span><strong>250 kg</strong><small>Zona A</small></div>
+                <div><span class="location-tag">B · P03 · R04 · N02</span><strong>500 kg</strong><small>Zona B</small></div>
+                <div><span class="location-tag">C · P02 · R01 · N04</span><strong>100 kg</strong><small>Zona C</small></div>
+                <div><span class="location-tag">D · P02 · R03 · N01</span><strong>80 kg</strong><small>Zona D · Material peligroso</small></div>
+              </div>
+            </article>
+          </div>
+          <article class="card">
+            <div class="card-header"><div><h2>Coordenadas registradas</h2><p>Ejemplo de inventario físico por ubicación</p></div><div class="inline-search"><input type="search" placeholder="Buscar coordenada...">⌕</div></div>
+            <div class="table-wrap"><table><thead><tr><th>ID</th><th>Zona</th><th>Pasillo</th><th>Rack</th><th>Nivel</th><th>Capacidad</th><th>Tipo</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>UB-001</strong></td><td>A</td><td>P02</td><td>R03</td><td>N01</td><td>250 kg</td><td>Seco</td><td><span class="badge success">Ocupada</span></td></tr>
+              <tr><td><strong>UB-002</strong></td><td>A</td><td>P05</td><td>R02</td><td>N03</td><td>250 kg</td><td>Seco</td><td><span class="badge neutral">Disponible</span></td></tr>
+              <tr><td><strong>UB-003</strong></td><td>B</td><td>P03</td><td>R04</td><td>N02</td><td>500 kg</td><td>Seco</td><td><span class="badge neutral">Disponible</span></td></tr>
+              <tr><td><strong>UB-004</strong></td><td>D</td><td>P01</td><td>R01</td><td>N01</td><td>80 kg</td><td>Material peligroso</td><td><span class="badge success">Ocupada</span></td></tr>
+            </tbody></table></div>
+          </article>
+        </section>
+
+        <!-- ORDENES -->
+        <section class="page-section" id="ordenes">
+          <div class="page-heading"><div><span class="eyebrow">DESPACHOS</span><h1>Órdenes de salida</h1><p>Consulta y administra los pedidos de sucursales y talleres.</p></div><button class="btn btn-primary" data-modal="orden" data-title="Nueva orden de salida">+ Nueva orden</button></div>
+          <div class="order-filters"><button class="filter-pill active">Todas <b>24</b></button><button class="filter-pill">Pendientes <b>8</b></button><button class="filter-pill">En proceso <b>6</b></button><button class="filter-pill">Completadas <b>10</b></button></div>
+          <article class="card">
+            <div class="table-wrap"><table><thead><tr><th>Orden</th><th>Fecha</th><th>Destino</th><th>Empleado</th><th>Productos</th><th>Estatus</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><strong>#ORD-1048</strong></td><td>07/10/2026 10:24</td><td>Sucursal Norte</td><td>Laura Méndez</td><td>5 productos</td><td><span class="badge success">Completada</span></td><td><button class="table-btn" data-modal="detalle" data-title="Orden #ORD-1048">Detalle</button></td></tr>
+              <tr><td><strong>#ORD-1047</strong></td><td>07/10/2026 10:11</td><td>Taller Rápido</td><td>Diego Ramírez</td><td>8 productos</td><td><span class="badge warning">En proceso</span></td><td><button class="table-btn" data-modal="detalle" data-title="Orden #ORD-1047">Detalle</button></td></tr>
+              <tr><td><strong>#ORD-1046</strong></td><td>07/10/2026 09:58</td><td>Sucursal Centro</td><td>Sin asignar</td><td>3 productos</td><td><span class="badge neutral">Pendiente</span></td><td><button class="table-btn" data-modal="detalle" data-title="Orden #ORD-1046">Detalle</button></td></tr>
+              <tr><td><strong>#ORD-1045</strong></td><td>07/10/2026 09:42</td><td>Taller del Valle</td><td>Laura Méndez</td><td>11 productos</td><td><span class="badge success">Completada</span></td><td><button class="table-btn" data-modal="detalle" data-title="Orden #ORD-1045">Detalle</button></td></tr>
+            </tbody></table></div>
+          </article>
+          <div class="info-banner"><span>i</span><div><strong>Flujo de surtido</strong><p>Una orden se asigna a un empleado, quien consulta las ubicaciones exactas de cada producto y registra la salida del inventario.</p></div></div>
+        </section>
+
+        <!-- EMPLEADOS -->
+        <section class="page-section" id="empleados">
+          <div class="page-heading"><div><span class="eyebrow">PERSONAL</span><h1>Empleados</h1><p>Consulta operadores y su capacidad para realizar tareas de almacén.</p></div></div>
+          <div class="employee-grid">
+            <article class="employee-card"><div class="employee-avatar">LM</div><div><h3>Laura Méndez</h3><span>ID-021 · Turno matutino</span><p><b>18</b> órdenes completadas</p></div><span class="certified">✓ Montacargas</span></article>
+            <article class="employee-card"><div class="employee-avatar">DR</div><div><h3>Diego Ramírez</h3><span>ID-034 · Turno matutino</span><p><b>15</b> órdenes completadas</p></div><span class="certified">✓ Montacargas</span></article>
+            <article class="employee-card"><div class="employee-avatar">MG</div><div><h3>Mario García</h3><span>ID-041 · Turno matutino</span><p><b>12</b> órdenes completadas</p></div><span class="not-certified">No certificado</span></article>
+            <article class="employee-card"><div class="employee-avatar">AS</div><div><h3>Ana Soto</h3><span>ID-052 · Turno vespertino</span><p><b>21</b> órdenes completadas</p></div><span class="certified">✓ Montacargas</span></article>
+          </div>
+          <article class="card">
+            <div class="card-header"><div><h2>Productividad del turno</h2><p>Órdenes completadas por empleado</p></div></div>
+            <div class="productivity"><div><span>Laura Méndez</span><div class="progress"><i style="width:90%"></i></div><b>18</b></div><div><span>Diego Ramírez</span><div class="progress"><i style="width:75%"></i></div><b>15</b></div><div><span>Mario García</span><div class="progress"><i style="width:60%"></i></div><b>12</b></div><div><span>Ana Soto</span><div class="progress"><i style="width:100%"></i></div><b>21</b></div></div>
+          </article>
+        </section>
+
+        <!-- REPORTES -->
+        <section class="page-section" id="reportes">
+          <div class="page-heading"><div><span class="eyebrow">ANÁLISIS OPERATIVO</span><h1>Reportes</h1><p>Consulta indicadores para tomar decisiones sobre inventario y operación.</p></div><button class="btn btn-light" id="printReport">Imprimir reporte</button></div>
+          <div class="report-grid">
+            <button class="report-card" data-report="stock"><span class="report-icon">▣</span><div><h2>Stock por ubicación</h2><p>Consulta qué productos y cantidades existen en un rack o coordenada específica.</p><strong>Ver reporte →</strong></div></button>
+            <button class="report-card" data-report="eficiencia"><span class="report-icon">◔</span><div><h2>Eficiencia de recolección</h2><p>Mide cuántas órdenes completa cada empleado durante su turno.</p><strong>Ver reporte →</strong></div></button>
+            <button class="report-card" data-report="vacias"><span class="report-icon">⌖</span><div><h2>Ubicaciones vacías</h2><p>Identifica espacios disponibles para almacenar nueva mercancía.</p><strong>Ver reporte →</strong></div></button>
+          </div>
+          <article class="card report-preview">
+            <div class="card-header"><div><h2 id="reportTitle">Resumen de ocupación</h2><p id="reportDescription">Vista general del uso del espacio disponible.</p></div><span class="badge success">Actualizado</span></div>
+            <div class="report-kpis"><div><span>Capacidad total</span><strong>520</strong><small>ubicaciones</small></div><div><span>Ocupadas</span><strong>428</strong><small>82.3%</small></div><div><span>Disponibles</span><strong>92</strong><small>17.7%</small></div><div><span>Productos</span><strong>1,284</strong><small>SKUs</small></div></div>
+            <div class="chart"><div class="bar" style="height:42%"><span>Zona A</span></div><div class="bar" style="height:74%"><span>Zona B</span></div><div class="bar" style="height:68%"><span>Zona C</span></div><div class="bar" style="height:55%"><span>Zona D</span></div></div>
+          </article>
+        </section>
+
+        <!-- AYUDA -->
+        <section class="page-section" id="ayuda">
+          <div class="page-heading"><div><span class="eyebrow">SOPORTE</span><h1>Ayuda</h1><p>Guía rápida para utilizar el sistema del almacén.</p></div></div>
+          <div class="help-grid">
+            <article class="card"><span class="help-number">01</span><h2>Buscar una pieza</h2><p>Entra a <b>Inventario</b> y escribe el SKU, nombre o categoría. El sistema muestra la existencia y la coordenada física.</p></article>
+            <article class="card"><span class="help-number">02</span><h2>Encontrar una ubicación</h2><p>En <b>Ubicaciones</b> puedes revisar zona, pasillo, rack, nivel y capacidad de carga disponible.</p></article>
+            <article class="card"><span class="help-number">03</span><h2>Surtir una orden</h2><p>En <b>Órdenes de salida</b> se asigna un empleado y se consulta dónde recoger cada producto solicitado.</p></article>
+            <article class="card"><span class="help-number">04</span><h2>Consultar reportes</h2><p>La sección <b>Reportes</b> concentra stock por ubicación, eficiencia de recolección y espacios vacíos.</p></article>
+          </div>
+          <div class="info-banner"><span>!</span><div><strong>Esta versión es una demostración visual</strong><p>Los datos mostrados son de ejemplo. No se realizan cambios reales ni consultas a una base de datos.</p></div></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-icon">EP</div>
+      <h2 id="modalTitle">Detalle</h2>
+      <p id="modalText">Esta acción está disponible visualmente en la demo.</p>
+      <div id="modalForm" class="modal-form hidden">
+        <label>Nombre<input type="text" placeholder="Ej. Filtro de aceite"></label>
+        <label>SKU<input type="text" placeholder="SKU-0000"></label>
+        <label>Categoría<select><option>Frenos</option><option>Motor</option><option>Eléctrico</option><option>Suspensión</option><option>Químicos</option></select></label>
+      </div>
+      <button class="btn btn-primary modal-action" id="modalAction">Aceptar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><span>✓</span><div><strong>Acción simulada</strong><small>Esta interfaz no está conectada a una base de datos.</small></div></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
